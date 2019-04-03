@@ -4,7 +4,7 @@ public class PMGameData {
 	
 	private static int curPlayer = 1;
 	
-	private static int[] curPlayPos = {-1, 35, 0, 0, 0};
+	private static int[] curPlayPos = {-1, 0, 0, 0, 0};
 	
 	private static int [] spaceOwned = {-1, 0, -1, 0, -1, -1, 0, -1, 0, 0, -1, 0,
 			0, 0, 0, -1, 0, -1, 0, 0, -1, 0, -1, 0, 0, -1, 0, 0,
@@ -15,6 +15,8 @@ public class PMGameData {
 	private static int actions = -1;
 	
 	private static int doubles = 0;
+	
+	private static int [] colorSet = {0, 0, 0, 0, 0, 0, 0, 0};
 	
 	public void SetPlayer(int curPlayer) {
 		
@@ -38,9 +40,9 @@ public class PMGameData {
 		return curPlayPos[curPlayer];
 		
 	}
-	public void SetSpaceOwned(int curSpace, int playerOwned) {
+	public void SetSpaceOwned(int curSpace, int player) {
 		
-		 PMGameData.spaceOwned[curSpace] = playerOwned;
+		 PMGameData.spaceOwned[curSpace] = player;
 		 
 	}
 	
@@ -83,6 +85,75 @@ public class PMGameData {
 	public int GetDoubles() {
 		
 		return doubles;
+		
+	}
+	
+public void SetColorSet(int colorSetObtained) {
+		
+		PMGameData.colorSet[colorSetObtained] = curPlayer;
+		
+	}
+	
+	public int GetColorSet(int spaceOwned){
+		
+		int colorSetObtained = 0;
+		
+		switch(spaceOwned) {
+		
+		case 2:
+			
+		case 4:
+			
+		case 6:
+			
+		case 8:
+			
+		case 9:
+			
+		case 11:
+			
+		case 13:
+			
+		case 14:
+			
+		case 16:
+			
+		case 18:
+			
+		case 19:
+			
+		case 21:
+			
+		case 23:
+			
+		case 24:
+			
+		case 26:
+			
+		case 28:
+			
+		case 29:
+			
+		case 31:
+			
+		case 32:
+			
+		case 34:
+			
+		case 37:
+			
+		case 39: 	
+			
+			
+		default:
+		System.out.println("You Shouldn't See This!");
+		}
+		
+		
+		
+		
+		
+		return colorSet[colorSetObtained];
 		
 	}
 

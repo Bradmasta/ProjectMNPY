@@ -16,23 +16,18 @@ public class GameMechanics {
 		int action = data.GetActions();
 		
 		int curPlayPos = data.GetPlayerPos();
-		
-		
-		
+			
 		int spaceVal = data.SpaceValue()[curPlayPos];
 		
 		String spaceName = data.SpaceName()[curPlayPos];
-		
-		
-		
+			
 		
 		data.SetPlayerBank(data.GetPlayer(), (bank - spaceVal));
+		
+		data.SetSpaceOwned(curPlayPos, player);
 			
 	
 		JOptionPane.showMessageDialog(null, "Player " + player + " bought " + spaceName + " for $" + spaceVal);
-		
-	
-		
 		
 		
 		data.SetActions(1);
@@ -41,6 +36,36 @@ public class GameMechanics {
 	}
 	
 	public void PayRent() {
+		int spaceOwned = data.GetSpaceOwned();
+		
+		int curPlayPos = data.GetPlayerPos();
+		
+		int spaceVal = data.SpaceValue()[curPlayPos];
+		
+		int bank = data.GetPlayersBank();
+		
+		String spaceName = data.SpaceName()[curPlayPos];
+		
+		if (bank - spaceVal >= 0) {
+		
+		
+		JOptionPane.showMessageDialog(null, spaceName + " is owned by Player " + spaceOwned + ". You pay them " + spaceVal + " In rent.");
+		
+		data.SetPlayerBank(data.GetPlayer(), (bank - spaceVal));
+		data.SetPlayerBank(spaceOwned, (bank + spaceVal));
+		
+		data.SetActions(1);
+		System.out.println("Current Action Now: " + data.GetActions());
+		game.TheGame();
+		
+		}
+		
+		else {
+			
+			JOptionPane.showMessageDialog(null, "You don't have enough!");
+			System.exit(0);
+		}
+		
 		
 		
 	}

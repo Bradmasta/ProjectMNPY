@@ -54,6 +54,7 @@ PMRandom roll = new PMRandom();
 		int possNPS = data.nonPropSpaces()[curSpace][0];
 		int action = data.GetActions();
 		int bank = data.GetPlayersBank();
+		int spaceOwned = data.GetSpaceOwned();
 		if (action == -1) {
 		roll.NewRoll();
 		}
@@ -65,13 +66,12 @@ PMRandom roll = new PMRandom();
 				System.out.println("Current Space: (Buyable Space will appear as -1): " + possNPS);
 				
 				
-			if (curSpace != possNPS) {
+			if (spaceOwned <= 0) {
 			gm.BuyProperty();
 			break;
 			}
-			else {
-			System.out.println(data.SpaceName()[curSpace]);
-			gm.EndTurn();
+			else if (spaceOwned > 0) {
+			gm.PayRent();
 			break;
 			}
 			case 1:	
