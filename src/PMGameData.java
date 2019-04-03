@@ -10,13 +10,17 @@ public class PMGameData {
 			0, 0, 0, -1, 0, -1, 0, 0, -1, 0, -1, 0, 0, -1, 0, 0,
 			0, 0, -1, 0, 0, -1, 0, -1, -1, 0, -1, 0};
 	
+	private static int [] rentToPay = {-1, 2, -1, 4, -1, -1, 6, -1, 6, 8, -1, 10,
+			0, 10, 12, -1, 14, -1, 14, 16, -1, 18, -1, 18, 20, -1, 22, 22,
+			0, 24, -1, 26, 26, -1, 28, -1, -1, 35, -1, 50};
+	
 	private static int [] playersBank = {-1, 1500, 1500, 1500, 1500};
 	
 	private static int actions = -1;
 	
 	private static int doubles = 0;
 	
-	private static int [] colorSet = {0, 0, 0, 0, 0, 0, 0, 0};
+	private static int [] colorSet = {-1, 0, 0, 0, 0, 0, 0, 0, 0};
 	
 	public void SetPlayer(int curPlayer) {
 		
@@ -52,15 +56,34 @@ public class PMGameData {
 		
 	}
 	
+	public int GetSpaceCheck(int numToCheck) {
+		
+		return spaceOwned[numToCheck];
+		
+	}
+	public void SetRentToPay(int curSpace, int priceToSet) {
+		
+		 PMGameData.rentToPay[curSpace] = priceToSet;
+		 
+	}
+	
+	public int GetRentToPay() {
+		
+		return rentToPay[curPlayPos[curPlayer]];
+		
+	}
+	
 	public void SetPlayerBank(int curPlayer, int bankAmt) {
 		
 		PMGameData.playersBank[curPlayer] = bankAmt;
 		
 	}
 	
-	public int GetPlayersBank() {
+	public int GetPlayersBank(int player) {
 		
-		return playersBank[curPlayer];
+		return playersBank[player];
+		
+		
 		
 	}
 	
@@ -94,60 +117,7 @@ public void SetColorSet(int colorSetObtained) {
 		
 	}
 	
-	public int GetColorSet(int spaceOwned){
-		
-		int colorSetObtained = 0;
-		
-		switch(spaceOwned) {
-		
-		case 2:
-			
-		case 4:
-			
-		case 6:
-			
-		case 8:
-			
-		case 9:
-			
-		case 11:
-			
-		case 13:
-			
-		case 14:
-			
-		case 16:
-			
-		case 18:
-			
-		case 19:
-			
-		case 21:
-			
-		case 23:
-			
-		case 24:
-			
-		case 26:
-			
-		case 28:
-			
-		case 29:
-			
-		case 31:
-			
-		case 32:
-			
-		case 34:
-			
-		case 37:
-			
-		case 39: 	
-			
-			
-		default:
-		System.out.println("You Shouldn't See This!");
-		}
+	public int GetColorSet(int colorSetObtained){
 		
 		
 		
